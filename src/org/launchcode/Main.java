@@ -11,31 +11,26 @@ public class Main {
     public static void main(String[] args) {
 
         ArrayList<City> cities = CityData.loadData();
-        Comparator<? super City> comparator;
+        CompoundComparator comparator = new CompoundComparator();
 
         // TO done - Use different comparators here
         Scanner in = new Scanner(System.in);
-        System.out.println("would you like to organize by name(1), state(2), population(3), or square miles(4)?" +
-                         "\n other options(0 or 5)" +
-                         "\nselect one by typing tbe corresponding number and pushing enter.");
-        int choice = in.nextInt();
-
-        if (choice == 1) {
-            comparator = new NameComparator();
-        }else if (choice == 2) {
-            comparator = new StateComparator();
-        }else if (choice == 3){
-            comparator = new PopulationComparator();
-        }else if (choice == 4){
-            comparator = new AreaComparator();
-        }else{
-            System.out.println("would you like to organize by state and population(1), or state and square miles(2)?" +
+        while (true) {
+            System.out.println("would you like to organize by name(1), state(2), population(3), or square miles(4)?" +
+                    "\n  done(0)" +
                     "\nselect one by typing tbe corresponding number and pushing enter.");
-            choice = in.nextInt();
+            int choice = in.nextInt();
+
             if (choice == 1) {
-                comparator = new StateThenPopulation();
-            }else {
-                comparator = new StateThenArea();
+                comparator.add(new NameComparator());
+            } else if (choice == 2) {
+                comparator.add(new StateComparator());
+            } else if (choice == 3) {
+                comparator.add(new PopulationComparator());
+            } else if (choice == 4) {
+                comparator.add(new AreaComparator());
+            }else{
+                break;
             }
         }
         cities.sort(comparator);
