@@ -1,4 +1,4 @@
-package org.launchcode.comparators;
+package org.launchcode.unusedButEducationalComparators;
 
 import org.launchcode.City;
 
