@@ -1,5 +1,6 @@
 package org.launchcode;
 
+import org.launchcode.comparators.AreaComparator;
 import org.launchcode.comparators.NameComparator;
 import org.launchcode.comparators.PopulationComparator;
 import org.launchcode.comparators.StateComparator;
@@ -15,9 +16,10 @@ public class Main {
         ArrayList<City> cities = CityData.loadData();
         Comparator<? super City> comparator;
 
-        // TODO - Use different comparators here
+        // TO done - Use different comparators here
         Scanner in = new Scanner(System.in);
-        System.out.println("would you like to organize by name(1), state(2), population(3), or square miles(4)?");
+        System.out.println("would you like to organize by name(1), state(2), population(3), or square miles(4)?" +
+                         "\nselect one by typing tbe corresponding number and pushing enter.");
         int choice = in.nextInt();
 
         if (choice == 1) {
@@ -27,8 +29,7 @@ public class Main {
         }else if (choice == 3){
             comparator = new PopulationComparator();
         }else{
-            System.out.println("Not implemented yet");
-            comparator = new NameComparator();
+            comparator = new AreaComparator();
         }
         cities.sort(comparator);
 
