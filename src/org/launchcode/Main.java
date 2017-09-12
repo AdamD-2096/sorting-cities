@@ -35,7 +35,7 @@ public class Main {
             if (choice == 1) {
                 comparator = new StateThenPopulation();
             }else {
-                comparator = new StateComparator();
+                comparator = new StateThenArea();
             }
         }
         cities.sort(comparator);
