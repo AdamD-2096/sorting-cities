@@ -1,6 +1,7 @@
 package org.launchcode;
 
 import org.launchcode.comparators.NameComparator;
+import org.launchcode.comparators.PopulationComparator;
 import org.launchcode.comparators.StateComparator;
 
 import java.util.ArrayList;
@@ -24,8 +25,7 @@ public class Main {
         }else if (choice == 2) {
             comparator = new StateComparator();
         }else if (choice == 3){
-            System.out.println("Not implemented yet");
-            comparator = new NameComparator();
+            comparator = new PopulationComparator();
         }else{
             System.out.println("Not implemented yet");
             comparator = new NameComparator();
